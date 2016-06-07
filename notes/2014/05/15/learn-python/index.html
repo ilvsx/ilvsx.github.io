@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Python 学习小结</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
+">
+        <link rel="canonical" 
+        href="http://127.0.0.1:4000/notes/2014/05/15/learn-python/">
+        
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>    
+
+        <!-- IE Fixes -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->        
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Ilvsx's Blog</a></h1>
+                <h2>return practice() ? '1 week' : 'never';</h2>
+                <ul>
+	<li>
+		<a href="http://127.0.0.1:4000/about">About</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://127.0.0.1:4000/blog">Blog</a><span>/</span>
+	</li>
+</ul>
+                
+            </div>
+        </header>
+        <div class="page-content wc-container">
+	
+	<div class="post">
+		<h1>Python 学习小结</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      Notes
+      </span> |
+	    
+	    <span class="post-date">
+    	May 15, 2014 
+	    </span>
+		</p>		
+		<div class="post">
+			<h2 id="hello-world">Hello World!</h2>
+<p>print
+命令行模式: 运行Python，在命令行输入命令并执行。
+程序模式: 写一段Python程序并运行。</p>
+
+<h2 id="section">基本数据类型</h2>
+<p>变量不需要声明，不需要删除，可以直接回收适用。
+type(): 查询数据类型
+整数，浮点数，真值，字符串</p>
+
+<h2 id="section-1">序列</h2>
+<p>序列有两种：tuple（定值表； 也有翻译为元组） 和 list (表)
+tuple元素不可变，list元素可变
+序列的引用 s[2], s[1:8:2]
+字符串是一种tuple</p>
+
+<h2 id="section-2">运算</h2>
+<p>数学 +, -, *, /, **, %
+判断 ==, !=, &gt;, &gt;=, &lt;, &lt;=, in
+逻辑 and, or, not</p>
+
+<h2 id="section-3">缩进和选择</h2>
+<p>if语句之后的冒号
+以四个空格的缩进来表示隶属关系, Python中不能随意缩进</p>
+
+<pre><code>if  &lt;条件1&gt;:
+    statement
+elif &lt;条件2&gt;:
+    statement
+elif &lt;条件3&gt;：
+    statement
+else:
+    statement
+</code></pre>
+
+<h2 id="section-4">循环</h2>
+<p>range()
+for 元素 in 序列:
+while 条件:
+continue
+break</p>
+
+<h2 id="section-5">函数</h2>
+<pre><code>def function_name(a,b,c):
+    statement
+    return something  # return不是必须的
+</code></pre>
+
+<p>函数的目的： 提高程序的重复可用性。
+return     None
+通过位置，传递参数。
+基本数据类型的参数：值传递
+表作为参数：指针传递</p>
+
+<h2 id="section-6">面向对象的基本概念</h2>
+<p>将东西根据属性归类 ( 将object归为class )
+方法是一种属性，表示动作
+用继承来说明父类-子类关系。子类自动具有父类的所有属性。
+self代表了根据类定义而创建的对象。
+创建一个类： class 类名(object)
+创建子类： class 子类名（父类名）
+建立对一个对象： 对象名 = 类名()
+引用对象的属性： object.attribute</p>
+
+<h2 id="section-7">面向对象的进一步拓展</h2>
+<p>在 Python 里面所有东西都是对象。
+字符串是对象，列表是对象，函数是对象，类是对象，类的实例是对象，甚至模块也是对象。
+通过self调用类属性
+<code>__init__()</code>: 在建立对象时自动执行
+类属性和对象的性质的区别</p>
+
+<h2 id="section-8">反过头来看看</h2>
+<p>len() dir() help()
+数据结构list(列表)是一个类。
+运算符是方法</p>
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>01 May 2016 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/notes/2016/05/01/Use-Linux-To-Work/">使用 Linux 做主力开发环境</a>
+		    </li>
+		    
+		    <li>
+			  <span>06 Jan 2016 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/notes/2016/01/06/you-can-do-it/">跟叶子学把妹</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Dec 2015 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/dirary/2015/12/26/summary-2015/">2015年总结 & 展望2016</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<span><< Older</span>
+			
+		</div>
+		<div class="column-2"><a href="http://127.0.0.1:4000/ ">Home</a></div>
+		<div class="column-3">
+			
+				<a href="http://127.0.0.1:4000/notes/2014/10/31/learn-html/">Newer >></a>
+			
+		</div>
+	</div>
+</div>
+ 
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <h6>Few more links</h6>
+<ul class="menu">
+    <li><a href="http://127.0.0.1:4000/about">About</a></li>
+    <li><a href="http://127.0.0.1:4000/blog">Blog</a></li>
+    <li><a href="http://127.0.0.1:4000/faq">Help / FAQ</a></li>    
+</ul>		                    
+                </div>
+                <div class="column two">
+                    <h6>Follow me</h6>
+
+<ul class="social-media">
+
+
+    
+
+    
+    <li>
+        <a title="ilvsx on Github" 
+            href="https://github.com/ilvsx" 
+            class="github wc-img-replace" target="_blank">Github</a>
+    </li>
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</ul>
+
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                
+	Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.      
+
+Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </body>        
+</html>

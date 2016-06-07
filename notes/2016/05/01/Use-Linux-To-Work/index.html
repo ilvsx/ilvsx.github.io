@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>使用 Linux 做主力开发环境</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
+">
+        <link rel="canonical" 
+        href="http://127.0.0.1:4000/notes/2016/05/01/Use-Linux-To-Work/">
+        
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>    
+
+        <!-- IE Fixes -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->        
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Ilvsx's Blog</a></h1>
+                <h2>return practice() ? '1 week' : 'never';</h2>
+                <ul>
+	<li>
+		<a href="http://127.0.0.1:4000/about">About</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://127.0.0.1:4000/blog">Blog</a><span>/</span>
+	</li>
+</ul>
+                
+            </div>
+        </header>
+        <div class="page-content wc-container">
+	
+	<div class="post">
+		<h1>使用 Linux 做主力开发环境</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      Notes
+      </span> |
+	    
+	    <span class="post-date">
+    	May 1, 2016 
+	    </span>
+		</p>		
+		<div class="post">
+			<ul id="markdown-toc">
+  <li><a href="#linux--osx--windows" id="markdown-toc-linux--osx--windows">为什么是 <code>Linux</code> 而不是 <code>OSX</code> 以及 <code>Windows</code>?</a></li>
+  <li><a href="#ubuntu--arch-" id="markdown-toc-ubuntu--arch-">为什么是 <code>Ubuntu</code> 而不是 <code>Arch</code> 等其他发行版本？</a></li>
+  <li><a href="#section" id="markdown-toc-section">安装系统</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">安装常用软件</a>    <ul>
+      <li><a href="#section-2" id="markdown-toc-section-2">编辑器</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">浏览器</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">桌面</a></li>
+      <li><a href="#section-5" id="markdown-toc-section-5">下载工具</a></li>
+      <li><a href="#section-6" id="markdown-toc-section-6">科学上网</a>        <ul>
+          <li><a href="#shadowsocks-client" id="markdown-toc-shadowsocks-client">Shadowsocks Client</a></li>
+          <li><a href="#proxychains" id="markdown-toc-proxychains">Proxychains</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="linux--osx--windows">为什么是 <code>Linux</code> 而不是 <code>OSX</code> 以及 <code>Windows</code>?</h2>
+
+<ul>
+  <li>Windows
+    <ul>
+      <li>优点：娱乐性特别强，如果你必须要使用 QQ，或者需要高质量视频播放(Lav + ffdshow + SVP即时帧插补)、海量的游戏、还有丰富的软件，那就只有 Windows 可选了，特别是有的软件只有 Windows 版本，以及某些软件在 Windows 下表现特别好</li>
+      <li>缺点：毫无技术学习上的长期投资性可言，Xp 时代折腾注册表、GHOST，解决过各种蓝屏系统慢图标消失重启后没声音等以及各种奇葩问题，现在看来这些折腾过的东西毫无价值，都不值得一提，还不如直接重装系统来的省事直接</li>
+    </ul>
+  </li>
+  <li>OSX
+    <ul>
+      <li>优点：开箱即用，颜值高，软件质量普遍较高，和 Linux 相比至少能有好用的 QQ</li>
+      <li>缺点：缺少娱乐性，这点其实也算是优点，因为这样你可以全身心的投入到工作中</li>
+    </ul>
+  </li>
+  <li>Linux
+    <ul>
+      <li>优点：对于开发人员来说极度友好</li>
+      <li>缺点：对应 Windows 的所有优点，如果不是开发人员就别考虑 Linux 了</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="ubuntu--arch-">为什么是 <code>Ubuntu</code> 而不是 <code>Arch</code> 等其他发行版本？</h2>
+
+<p>比如：
+<img src="http://ww1.sinaimg.cn/mw1024/7449932djw1evfzf44rf9j215e0cidi9.jpg" alt="" />
+原因就一点开箱即用，少折腾，可以平滑地从 <code>OSX</code> 切换到 <code>Linux</code></p>
+
+<h2 id="section">安装系统</h2>
+
+<p>这是最方便以及最省心地方法：</p>
+
+<ul>
+  <li>在<a href="http://search.jd.com/Search?keyword=16G%20USB3.0&amp;enc=utf-8&amp;wq=16G%20USB3.0&amp;pvid=l9vogoni.fvgy8x">京东上购买<code>16G USB3.0</code></a> 的U盘
+  选择 16G 而不是更大容量的 U盘是因为没必要，U盘不会也不应该存放长期存储的文件，我们需要的是一个随时可以格式化的U盘。</li>
+  <li>下载 <code>Ubuntu</code> 安装镜像
+   <a href="http://www.ubuntu.com/download/desktop">Download Ubuntu Desktop</a></li>
+  <li>使用 <a href="https://rufus.akeo.ie/">Rufus</a> 制作引导盘
+  <a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows">How to create a bootable USB stick on Windows</a></li>
+  <li>后续安装一路下一步即可</li>
+</ul>
+
+<h2 id="section-1">安装常用软件</h2>
+
+<h3 id="section-2">编辑器</h3>
+
+<p>Vim 和 Phpstrom，以前对 Sublime 的使用还挺擅长的，随着对 Vim 的使用越来越熟练，就没有安装 Sublime 的必要了</p>
+
+<h3 id="section-3">浏览器</h3>
+
+<p>Firefox、Chrome</p>
+
+<h3 id="section-4">桌面</h3>
+
+<p><a href="http://i3wm.org/">i3wm</a>，i3 是一套动态平铺式窗口管理器
+文档 <a href="https://i3wm.org/docs/repositories.html">Documentation</a>
+演示视频 <a href="https://www.youtube.com/watch?v=ud1omD-uXdE">Arch Linux Tiling Manager i3wm</a></p>
+
+<h3 id="section-5">下载工具</h3>
+
+<p>axel
+- 安装方法 <code>sudo apt install axel</code></p>
+
+<h3 id="section-6">科学上网</h3>
+
+<h4 id="shadowsocks-client">Shadowsocks Client</h4>
+
+<ul>
+  <li>安装方法 <code>sudo apt install shadowsocks</code></li>
+  <li>
+    <p>配置  <code>vim ~/.shadowsocks.json</code></p>
+
+    <p><code>
+  {
+      "server":"11.22.33.44",
+      "server_port":50003,
+      "local_port":1080,
+      "password":"123456",
+      "timeout":600,
+      "method":"aes-256-cfb"
+  }
+ </code></p>
+  </li>
+  <li>启动 <code>sslcoal -c ~/.shadowsocks.json</code></li>
+</ul>
+
+<h4 id="proxychains">Proxychains</h4>
+
+<p>可以让终端中的命令使用代理</p>
+
+<ul>
+  <li>安装 <code>sudo apt install proxychains</code></li>
+  <li>配置 <code>/etc/proxychains.conf</code></li>
+</ul>
+
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>06 Jan 2016 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/notes/2016/01/06/you-can-do-it/">跟叶子学把妹</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Dec 2015 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/dirary/2015/12/26/summary-2015/">2015年总结 & 展望2016</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Dec 2015 &raquo;</span>
+			  <a href="http://127.0.0.1:4000/notes/2015/12/26/laracasts-what-s-new-in-laravel-5-2/">Laracasts - What’s New in Laravel 5.2</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<a href="http://127.0.0.1:4000/notes/2016/01/06/you-can-do-it/"><< Older</a>
+			
+		</div>
+		<div class="column-2"><a href="http://127.0.0.1:4000/ ">Home</a></div>
+		<div class="column-3">
+			
+				<span>Newer >></span>
+			
+		</div>
+	</div>
+</div>
+ 
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <h6>Few more links</h6>
+<ul class="menu">
+    <li><a href="http://127.0.0.1:4000/about">About</a></li>
+    <li><a href="http://127.0.0.1:4000/blog">Blog</a></li>
+    <li><a href="http://127.0.0.1:4000/faq">Help / FAQ</a></li>    
+</ul>		                    
+                </div>
+                <div class="column two">
+                    <h6>Follow me</h6>
+
+<ul class="social-media">
+
+
+    
+
+    
+    <li>
+        <a title="ilvsx on Github" 
+            href="https://github.com/ilvsx" 
+            class="github wc-img-replace" target="_blank">Github</a>
+    </li>
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</ul>
+
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                
+	Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.      
+
+Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </body>        
+</html>

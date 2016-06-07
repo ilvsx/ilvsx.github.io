@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description>return practice() ? &#39;1 week&#39; : &#39;never&#39;;</description>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 08 Jun 2016 04:06:29 +0800</pubDate>
+    <lastBuildDate>Wed, 08 Jun 2016 04:06:29 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>使用 Linux 做主力开发环境</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#linux--osx--windows&quot; id=&quot;markdown-toc-linux--osx--windows&quot;&gt;为什么是 &lt;code&gt;Linux&lt;/code&gt; 而不是 &lt;code&gt;OSX&lt;/code&gt; 以及 &lt;code&gt;Windows&lt;/code&gt;?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ubuntu--arch-&quot; id=&quot;markdown-toc-ubuntu--arch-&quot;&gt;为什么是 &lt;code&gt;Ubuntu&lt;/code&gt; 而不是 &lt;code&gt;Arch&lt;/code&gt; 等其他发行版本？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;安装系统&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;安装常用软件&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;编辑器&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;浏览器&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;桌面&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;下载工具&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-6&quot; id=&quot;markdown-toc-section-6&quot;&gt;科学上网&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#shadowsocks-client&quot; id=&quot;markdown-toc-shadowsocks-client&quot;&gt;Shadowsocks Client&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#proxychains&quot; id=&quot;markdown-toc-proxychains&quot;&gt;Proxychains&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;linux--osx--windows&quot;&gt;为什么是 &lt;code&gt;Linux&lt;/code&gt; 而不是 &lt;code&gt;OSX&lt;/code&gt; 以及 &lt;code&gt;Windows&lt;/code&gt;?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows
+    &lt;ul&gt;
+      &lt;li&gt;优点：娱乐性特别强，如果你必须要使用 QQ，或者需要高质量视频播放(Lav + ffdshow + SVP即时帧插补)、海量的游戏、还有丰富的软件，那就只有 Windows 可选了，特别是有的软件只有 Windows 版本，以及某些软件在 Windows 下表现特别好&lt;/li&gt;
+      &lt;li&gt;缺点：毫无技术学习上的长期投资性可言，Xp 时代折腾注册表、GHOST，解决过各种蓝屏系统慢图标消失重启后没声音等以及各种奇葩问题，现在看来这些折腾过的东西毫无价值，都不值得一提，还不如直接重装系统来的省事直接&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;OSX
+    &lt;ul&gt;
+      &lt;li&gt;优点：开箱即用，颜值高，软件质量普遍较高，和 Linux 相比至少能有好用的 QQ&lt;/li&gt;
+      &lt;li&gt;缺点：缺少娱乐性，这点其实也算是优点，因为这样你可以全身心的投入到工作中&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux
+    &lt;ul&gt;
+      &lt;li&gt;优点：对于开发人员来说极度友好&lt;/li&gt;
+      &lt;li&gt;缺点：对应 Windows 的所有优点，如果不是开发人员就别考虑 Linux 了&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ubuntu--arch-&quot;&gt;为什么是 &lt;code&gt;Ubuntu&lt;/code&gt; 而不是 &lt;code&gt;Arch&lt;/code&gt; 等其他发行版本？&lt;/h2&gt;
+
+&lt;p&gt;比如：
+&lt;img src=&quot;http://ww1.sinaimg.cn/mw1024/7449932djw1evfzf44rf9j215e0cidi9.jpg&quot; alt=&quot;&quot; /&gt;
+原因就一点开箱即用，少折腾，可以平滑地从 &lt;code&gt;OSX&lt;/code&gt; 切换到 &lt;code&gt;Linux&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;安装系统&lt;/h2&gt;
+
+&lt;p&gt;这是最方便以及最省心地方法：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在&lt;a href=&quot;http://search.jd.com/Search?keyword=16G%20USB3.0&amp;amp;enc=utf-8&amp;amp;wq=16G%20USB3.0&amp;amp;pvid=l9vogoni.fvgy8x&quot;&gt;京东上购买&lt;code&gt;16G USB3.0&lt;/code&gt;&lt;/a&gt; 的U盘
+  选择 16G 而不是更大容量的 U盘是因为没必要，U盘不会也不应该存放长期存储的文件，我们需要的是一个随时可以格式化的U盘。&lt;/li&gt;
+  &lt;li&gt;下载 &lt;code&gt;Ubuntu&lt;/code&gt; 安装镜像
+   &lt;a href=&quot;http://www.ubuntu.com/download/desktop&quot;&gt;Download Ubuntu Desktop&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;使用 &lt;a href=&quot;https://rufus.akeo.ie/&quot;&gt;Rufus&lt;/a&gt; 制作引导盘
+  &lt;a href=&quot;http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows&quot;&gt;How to create a bootable USB stick on Windows&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;后续安装一路下一步即可&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;安装常用软件&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;编辑器&lt;/h3&gt;
+
+&lt;p&gt;Vim 和 Phpstrom，以前对 Sublime 的使用还挺擅长的，随着对 Vim 的使用越来越熟练，就没有安装 Sublime 的必要了&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;浏览器&lt;/h3&gt;
+
+&lt;p&gt;Firefox、Chrome&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;桌面&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://i3wm.org/&quot;&gt;i3wm&lt;/a&gt;，i3 是一套动态平铺式窗口管理器
+文档 &lt;a href=&quot;https://i3wm.org/docs/repositories.html&quot;&gt;Documentation&lt;/a&gt;
+演示视频 &lt;a href=&quot;https://www.youtube.com/watch?v=ud1omD-uXdE&quot;&gt;Arch Linux Tiling Manager i3wm&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;下载工具&lt;/h3&gt;
+
+&lt;p&gt;axel
+- 安装方法 &lt;code&gt;sudo apt install axel&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;科学上网&lt;/h3&gt;
+
+&lt;h4 id=&quot;shadowsocks-client&quot;&gt;Shadowsocks Client&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装方法 &lt;code&gt;sudo apt install shadowsocks&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;配置  &lt;code&gt;vim ~/.shadowsocks.json&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code&gt;
+  {
+      &quot;server&quot;:&quot;11.22.33.44&quot;,
+      &quot;server_port&quot;:50003,
+      &quot;local_port&quot;:1080,
+      &quot;password&quot;:&quot;123456&quot;,
+      &quot;timeout&quot;:600,
+      &quot;method&quot;:&quot;aes-256-cfb&quot;
+  }
+ &lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;启动 &lt;code&gt;sslcoal -c ~/.shadowsocks.json&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;proxychains&quot;&gt;Proxychains&lt;/h4&gt;
+
+&lt;p&gt;可以让终端中的命令使用代理&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装 &lt;code&gt;sudo apt install proxychains&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;配置 &lt;code&gt;/etc/proxychains.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 01 May 2016 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2016/05/01/Use-Linux-To-Work/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2016/05/01/Use-Linux-To-Work/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>跟叶子学把妹</title>
+        <description>&lt;p&gt;翻看&lt;a href=&quot;http://jinnianshilongnian.iteye.com/blog/2235572&quot;&gt;京东详情页架构设计&lt;/a&gt;时居然在博主的文章中发现&lt;a href=&quot;http://jinnianshilongnian.iteye.com/blog/2119085&quot;&gt;跟叶子学把妹系列汇总贴&lt;/a&gt;…… 也是缘份……&lt;/p&gt;
+
+&lt;p&gt;作者是个妹子，文笔很有趣很吸引人，而且从女性角度来谈这件事感觉更靠谱，更令人信服&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;树立形象最重要&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;双肩包、大裤衩、大拖鞋、呆萌、内向、难沟通、形象随意、很容易投入到自己的世界&lt;/code&gt;形容的太贴切了。换位思考，如果是这个形象的妹子我也不会感兴趣，而且作为死宅对于颜值的重要性应该是再清楚不过。&lt;/p&gt;
+
+&lt;p&gt;正确的做法:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;浅色衬衣、休闲卡其裤、简单T恤、牛仔裤、休闲裤&lt;/li&gt;
+  &lt;li&gt;多运动&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;大忌：不勤洗头不勤洗澡、皮鞋配白袜子、立领&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;扩大交际圈&lt;/h4&gt;
+&lt;p&gt;作者说的很对，日常基本上就是公司到家两点一线，就算是放假，也是呆在家里不知道怎么的就过完了。应该多参加和人有接触的社交活动，多出去走走&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;学会搭讪&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;坚持、不要脸、坚持不要脸&lt;/li&gt;
+  &lt;li&gt;作为女性对被搭讪都是一件很令人开心的事。当然也不能一副猥琐的表情就冲上去……&lt;/li&gt;
+  &lt;li&gt;对着镜子和自己对视，点头微笑，熟悉这种感觉。说话的时候不要总异想天开说些莫名其妙的话，保持随意随和就好&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;学会约&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;注重细节，多花心思做好万全的准备&lt;/li&gt;
+  &lt;li&gt;提前约好时间&lt;/li&gt;
+  &lt;li&gt;务必亲自约&lt;/li&gt;
+  &lt;li&gt;心态摆正，妹子又不傻，心里门清，诚恳自然就好&lt;/li&gt;
+  &lt;li&gt;和妹纸商议做什么，负责安排好一切，但必须都是在妹纸确认过的情况下&lt;/li&gt;
+  &lt;li&gt;点菜要主动问姑娘是否有忌口，喜辣还是甜&lt;/li&gt;
+  &lt;li&gt;对待服务员态度要温和有礼貌。看到这里…… 之前一直不明白鸭子为什么会对出租车司机和服务员态度那么好，现在懂了&lt;/li&gt;
+  &lt;li&gt;夏天别太早，热；冬天别太晚，冷&lt;/li&gt;
+  &lt;li&gt;结束回家后，不要太快短信跟上，稍微留点空间&lt;/li&gt;
+  &lt;li&gt;约会地点如果是没去过的，最好提前去踩踩点&lt;/li&gt;
+  &lt;li&gt;对约会相关主题做下功课，不能虽然心里明白但却表达不出来&lt;/li&gt;
+  &lt;li&gt;不要迟到，迟到就死定了！！初次见面不要随便送东西！！&lt;/li&gt;
+  &lt;li&gt;态度真诚自然&lt;/li&gt;
+  &lt;li&gt;去妹子熟悉的地方，没必要太远&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上这些都是情商高的表现啊，多学习……&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;学会聊天&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;聊天大忌：不能讨论国家大事，或者发表一些高深的见解，没有一个妹纸会对这种东西感兴趣&lt;/li&gt;
+  &lt;li&gt;避免一问一答式聊天：比如吃饭了吗？在干嘛？家几口人？喜欢吃什么？&lt;/li&gt;
+  &lt;li&gt;正确做法：循序渐进，学会跟着话题找话题&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 06 Jan 2016 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2016/01/06/you-can-do-it/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2016/01/06/you-can-do-it/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>2015年总结 &amp; 展望2016</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;2015&lt;/h2&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;体型更大了&lt;/h4&gt;
+&lt;p&gt;公司一加班就会叫一堆麦当劳肯德基披萨，以前没吃过这些，很是新鲜，一个月下来，同事都说我明显更胖了，自己倒是没啥感觉，就是坐电梯的时候，公司妹子会把我当大白用手指戳我肚子玩……&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;开始运动了&lt;/h4&gt;
+
+&lt;p&gt;一开始是练跳绳，跳了几天跳绳膝盖疼…… 就休息了一个月，骑动感单车连续骑了一个小时，第二天膝盖就疼了…… 又休息了一个月，好惨TAT。之后了解到我这种从来没运动过的人，要循序渐进，每次多 10% 运动量，不能急。微博知乎贴吧上的励志文，一上来就跑操场几个小时的，做不到啊……&lt;/p&gt;
+
+&lt;p&gt;到了⑨月，算是真正的动起来了，见&lt;a href=&quot;/blog/2015/09/16/running-log/&quot;&gt;跑步日志&lt;/a&gt;，不过只坚持了俩个月，现在也有俩个月没跑了，坚持这件事要做到挺难的……&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;用微信了&lt;/h4&gt;
+&lt;p&gt;微信这东西，大家都在用，自己也就开始用了，交流方便，不得不说有时候你看一个人的朋友圈，能反映出他生活的一部分。不习惯用语音，还是比较喜欢打字，这可能是交流障碍症候群的一种吧，毕竟多年死宅了。&lt;/p&gt;
+
+&lt;p&gt;自己也在做微信应用的开发，也是天天得和它打交道。&lt;/p&gt;
+
+&lt;h4 id=&quot;lol-&quot;&gt;不玩 lol 了&lt;/h4&gt;
+&lt;p&gt;开一局一般都是三四十分钟时间，赢了？啦啦啦～继续赢，连胜走起！我这把赢了就不玩了！可惜输了之后接着就是打一个通宵 :-(&lt;/p&gt;
+
+&lt;p&gt;太浪费人参啦！另外，有的人是能和朋友一起玩就开心，输赢无所谓，有的人则是满脑子想着赢，周围的人都是前者，我是后者，一起玩赢了还好，一旦逆风输了，心理全都是埋怨，自己都控制不了。别了！陪伴（荒废）了我 3 年无数时间的游戏。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;买自己想要的东西了&lt;/h4&gt;
+&lt;p&gt;配了台配置很高的电脑，入了个 32 寸的大显示器，入了 IPAD，入手了耳机 ATH-MSR7(骚红色限量版！！)，换了更好的鼠标，六一给弟弟买了 1000 多元的书，自己也买了一大堆，换了副近五千元的眼镜，入手了口琴 SUZUKI SCX-64。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;挚友结婚了&lt;/h4&gt;
+&lt;p&gt;祝他们幸福～&lt;/p&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;买房了&lt;/h4&gt;
+&lt;p&gt;国庆回老家参加挚友的婚礼，然后顺带就把买房这件事定下来了，买房的原因挺多的，一来挚友友也是买房买在了成都，二来越来越体会到身在大城市所拥有的巨大优势，更好的教育、医疗资源，更好的发展空间，三来家里人非常支持我，一开始我只是随口提提，并没有想买的打算，没想到他们比我还主动……
+但是买了房，也就意味着我在职业道路上的选择少了，会开始图安稳长久，不能放手去博，会错过一些机会。&lt;/p&gt;
+
+&lt;h4 id=&quot;sunyanzi&quot;&gt;Sunyanzi&lt;/h4&gt;
+&lt;p&gt;呆在鸭子身边也一年了，感谢他对我的关照和照顾，技术方面他给我了很大的发展和发挥空间，可惜我并没有把握好这些机会。&lt;/p&gt;
+
+&lt;p&gt;在他身上学到的更多是为人处世与人交流方面的东西。说起来来深圳之前我还不知道他在里屋和 s1 的历史，倒是我俩朋友知道的反而比我多哈哈。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;总结&lt;/h4&gt;
+&lt;p&gt;从辞掉老师的工作，来深圳已经一年，女朋友仍然没有，可能是喜欢追别人的感觉，被别人喜欢就开始逃避……&lt;/p&gt;
+
+&lt;p&gt;至此。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;2016&lt;/h2&gt;
+&lt;p&gt;2016 年，我希望能达到以下目标：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;工资翻倍&lt;/li&gt;
+  &lt;li&gt;有个女朋友&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/dirary/2015/12/26/summary-2015/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/dirary/2015/12/26/summary-2015/</guid>
+        
+        
+        <category>Dirary</category>
+        
+      </item>
+    
+      <item>
+        <title>Laracasts - What’s New in Laravel 5.2</title>
+        <description>&lt;h2 id=&quot;laracasts---whats-new-in-laravel-52&quot;&gt;Laracasts - What’s New in Laravel 5.2&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;01 Implicit Route Binding&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;bind primary key&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;Route::get(&#39;users/{user}&#39;, function(App\User $user){
+  return $user
+});
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;bind other key&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;Route::get(&#39;users/{userName}&#39;, function(App\User $user){
+  return $user;
+});
+
+// RouteServiceProvider.php
+\Route::bind(&#39;userName&#39;, function($user_name){
+  return \App\User::where(&#39;user_name&#39;, $user_name)-&amp;gt;firstOrFail();
+});
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;02 API Rate Limiting&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;Route::get(&#39;/api/search/{term}&#39;, function($term){
+  return [
+    &#39;results&#39; =&amp;gt; $term
+  ];
+})-&amp;gt;middleware(&#39;throttle:30,5&#39;);  // 30 requests per 5 minute
+
+
+// framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
+$key = $this-&amp;gt;resolveRequestSignature($request);
+
+/**
+ * Resolve request signature.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return string
+ */
+protected function resolveRequestSignature($request)
+{
+    return $request-&amp;gt;fingerprint();
+}
+
+/**
+ * Get a unique fingerprint for the request / route / IP address.
+ *
+ * @return string
+ */
+public function fingerprint()
+{
+    if (! $this-&amp;gt;route()) {
+        throw new RuntimeException(&#39;Unable to generate fingerprint. Route unavailable.&#39;);
+    }
+    return sha1(
+        implode(&#39;|&#39;, $this-&amp;gt;route()-&amp;gt;methods()).
+        &#39;|&#39;.$this-&amp;gt;route()-&amp;gt;domain().
+        &#39;|&#39;.$this-&amp;gt;route()-&amp;gt;uri().
+        &#39;|&#39;.$this-&amp;gt;ip()
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2015/12/26/laracasts-what-s-new-in-laravel-5-2/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2015/12/26/laracasts-what-s-new-in-laravel-5-2/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>Laracasts - Sublime Text Mastery</title>
+        <description>&lt;h2 id=&quot;laracasts---sublime-text-mastery&quot;&gt;Laracasts - Sublime Text Mastery&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;01 Make Sublime Pretty
+    &lt;ul&gt;
+      &lt;li&gt;Install Package:
+        &lt;ul&gt;
+          &lt;li&gt;Material Theme&lt;/li&gt;
+          &lt;li&gt;Colorsublime&lt;/li&gt;
+          &lt;li&gt;PackageResourceViewer&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Install Color Scheme: &lt;code&gt;Facebook&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Install Font: &lt;code&gt;Fira Code&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Close Minimpa: &lt;code&gt;View -&amp;gt; Hide Minimap&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Modfi Package:
+        &lt;ul&gt;
+          &lt;li&gt;PackageResourceViewer: &lt;code&gt;Extract Package -&amp;gt; Material Theme&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Edit: &lt;code&gt;Material-Theme.sublime-theme&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Replace: &lt;code&gt;37, 43, 57&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Settings-User&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;&quot;theme&quot;: &quot;Material-Theme.sublime-theme&quot;,
+&quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme.tmTheme&quot;,
+&quot;overlay_scroll_bars&quot;          : &quot;enabled&quot;,
+&quot;line_padding_top&quot;             : 3,
+&quot;line_padding_bottom&quot;          : 3,
+&quot;bold_folder_labels&quot;           : true,
+&quot;indent_guide_options&quot;         : [ &quot;draw_normal&quot;, &quot;draw_active&quot; ],   // Highlight active indent
+&quot;font_options&quot;                 : [ &quot;gray_antialias&quot; ],                      // On retina Mac
+&quot;font_szie&quot;                    : 15,
+&quot;line_numbers&quot;                 : false,
+&quot;margin&quot;                       : 0,
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;02 Most Important Shortcuts
+    &lt;ul&gt;
+      &lt;li&gt;⌘P: &lt;code&gt;Goto Anything...&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;⌘K,⌘B: &lt;code&gt;Show/Hide Side Bar&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;⌘R: &lt;code&gt;Goto Symbol...&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;⇧⌘R: &lt;code&gt;Goto Symbol in Project...&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;03 Super-Fast File Creation
+    &lt;ul&gt;
+      &lt;li&gt;Install Package:
+        &lt;ul&gt;
+          &lt;li&gt;AdvanceNewFile&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;⌥⌘n: “advanced_new_file_new”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;04 Do The Splits With Origami
+    &lt;ul&gt;
+      &lt;li&gt;Install Package:
+        &lt;ul&gt;
+          &lt;li&gt;Origami&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Preferences -&amp;gt; Key Bindings - User&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;[
+  { &quot;keys&quot;: [&quot;:&quot;, &quot;v&quot;, &quot;s&quot;, &quot;p&quot;], &quot;command&quot;: &quot;create_pane&quot;, &quot;args&quot;: {&quot;direction&quot;: &quot;right&quot;, &quot;give_focus&quot;: true} },
+  { &quot;keys&quot;: [&quot;:&quot;, &quot;s&quot;, &quot;p&quot;], &quot;command&quot;: &quot;create_pane&quot;, &quot;args&quot;: {&quot;direction&quot;: &quot;down&quot;, &quot;give_focus&quot;: true} },
+  { &quot;keys&quot;: [&quot;:&quot;, &quot;b&quot;, &quot;d&quot;], &quot;command&quot;: &quot;destroy_pane&quot;, &quot;args&quot;: {&quot;direction&quot;: &quot;self&quot;} },
+]
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;05 Vintage Mode&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;06 Multiple Cursors
+    &lt;ul&gt;
+      &lt;li&gt;⌘D : Select same word&lt;/li&gt;
+      &lt;li&gt;⌃⌘G : Select all same word&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;07 Better PHP Workflow&lt;/li&gt;
+  &lt;li&gt;08 Better PHPUnit Workflow&lt;/li&gt;
+  &lt;li&gt;09 Trigger Artisan From Sublime&lt;/li&gt;
+  &lt;li&gt;10 Automatic PSR-2 Formatting&lt;/li&gt;
+  &lt;li&gt;11 Lint Your PHP&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2015/12/26/Laracasts-Sublime-Text-Mastery/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2015/12/26/Laracasts-Sublime-Text-Mastery/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>Laracasts - PHPUnit Testing with Laravel</title>
+        <description>&lt;h2 id=&quot;laracasts---phpunit-testing-with-laravel&quot;&gt;Laracasts - PHPUnit Testing with Laravel&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;01 Intro to Application Testing&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;02 Beginning Unit Testing
+    &lt;ul&gt;
+      &lt;li&gt;use snake case&lt;/li&gt;
+      &lt;li&gt;use comment: &lt;code&gt;/** @test */&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;03 More Unit Testing Review
+    &lt;ul&gt;
+      &lt;li&gt;test singel method : &lt;code&gt;phpunit --filter method_name&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;05 A Testing Database Connection
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;touch storage/testing.sqlite&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;database.php&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;&#39;sqllite_testing&#39; =&amp;gt; [
+  &#39;driver&#39;  =&amp;gt; &#39;sqlite&#39;,
+  &#39;database&#39; =&amp;gt; storage_path(&#39;testing.sqlite&#39;),
+  &#39;prefix&#39; =&amp;gt; &#39;&#39;,
+]
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;php artisan migrate --database=sqlite_testing&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;phpunit.xml&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;&amp;lt;env name=&quot;DB_CONNECTION&quot; value=&quot;sqlite_testing&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2015/12/26/Laracasts-PHPUnit-Testing-with-Laravel/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2015/12/26/Laracasts-PHPUnit-Testing-with-Laravel/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>Laracasts - Be Awesome in PHPStorm (2014)</title>
+        <description>&lt;h2 id=&quot;laracasts---be-awesome-in-phpstorm-2014&quot;&gt;Laracasts - Be Awesome in PHPStorm (2014)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;01 Hello
+    &lt;ul&gt;
+      &lt;li&gt;Install: PhpStorm Early Access Program&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;02 Minimalism
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;IDE theme&lt;/code&gt;: Darcula&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Editor colors and fonts&lt;/code&gt;: Darcula&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + 1&lt;/code&gt;: 打开/隐藏侧边栏&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + Shift + A&lt;/code&gt;: Find Action&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;View: Status Bar&lt;/code&gt;: 隐藏状态栏&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;View: Navigation Bar&lt;/code&gt;: 隐藏导航栏&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Show breadcrumb&lt;/code&gt;: 隐藏面包屑&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Tabs Placement: None&lt;/code&gt;: 隐藏 Tabs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;03 Color IDE
+    &lt;ul&gt;
+      &lt;li&gt;Install Plugin &lt;code&gt;Color Ide&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;04 Two Important Keybindings
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + P&lt;/code&gt;: &lt;code&gt;Navgate -&amp;gt; File...&lt;/code&gt; 文件跳转&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + R&lt;/code&gt;: &lt;code&gt;Navgate -&amp;gt; File Structure&lt;/code&gt; 方法跳转&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;05 Create New Files Quickly
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + ↑&lt;/code&gt; + &lt;code&gt;⌘ + N&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;06 Custom File Templates
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;File and Code Templates&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;07 Live Templates
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;⌘  + E&lt;/code&gt;: 打开的文件之间跳转&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;⌥  + ↑&lt;/code&gt;: 扩大选择范围&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;save live template&lt;/code&gt;: 添加当前选中的内容为代码片段&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;08 Custom Formatting
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Reformat Code...&lt;/code&gt;: 格式化&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;⌥  + ⌘  + L&lt;/code&gt;: 格式化当前文件&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;https://github.com/deringer/phpstorm-laravel-code-style&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;09 Refactoring Name and Method&lt;/li&gt;
+  &lt;li&gt;10 Refactoring Pull Up&lt;/li&gt;
+  &lt;li&gt;11 Refactoring Extract Interface&lt;/li&gt;
+  &lt;li&gt;12 Refactoring Extract and Inline Variable&lt;/li&gt;
+  &lt;li&gt;13 Fast Composition&lt;/li&gt;
+  &lt;li&gt;14 Navigating to Sass Symbols&lt;/li&gt;
+  &lt;li&gt;15 PHPStorm’s Laravel Facades Issue&lt;/li&gt;
+  &lt;li&gt;16 Multiple Cursors&lt;/li&gt;
+  &lt;li&gt;17 Splits&lt;/li&gt;
+  &lt;li&gt;18 Vi-Mode With Mappings
+    &lt;ul&gt;
+      &lt;li&gt;Install Plugin &lt;code&gt;IdeaVim&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;~/.ideavimrc&lt;/code&gt; 配置文件&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;19 Xdebug&lt;/li&gt;
+  &lt;li&gt;20 Xdebug and Laravel&lt;/li&gt;
+  &lt;li&gt;21 Composer Dependencies and PHPStorm&lt;/li&gt;
+  &lt;li&gt;22 Testing in PHPStorm&lt;/li&gt;
+  &lt;li&gt;23 Code Coverage&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2015/12/26/Laracasts-Be-Awesome-in-PHPStorm-2014/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2015/12/26/Laracasts-Be-Awesome-in-PHPStorm-2014/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>跑步日志</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;删掉 500 字……
+知易行难！
+要相信自己！&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;注意事项&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;一定要循序渐进&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;日志&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;2015/09/09&lt;/li&gt;
+  &lt;li&gt;走两圈跑一圈，30min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;累成狗！&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/11&lt;/li&gt;
+  &lt;li&gt;走两圈跑一圈，30min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;逐渐适应，发现稍不注意跑快是最大的问题&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/14&lt;/li&gt;
+  &lt;li&gt;走一圈跑两圈，30min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;跑步买块心率表还是很有必要！这次心率尽量控制在 140，虽然跑起来还没走路快，但是能比较轻松的跑完&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/15&lt;/li&gt;
+  &lt;li&gt;走一圈跑三圈，30min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;自我感觉不错，就作死增加了运动量，第二天右腿膝盖左侧开始疼…… 看样子得休息两天&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/18&lt;/li&gt;
+  &lt;li&gt;走两圈跑两圈，40min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;轻松跑完，已经找到跑步的感觉了，连续跑个十几分钟应该不是问题，但上次的教训告诉我不能这么做。入手《爱上跑步的13周》，以后的计划将完全按照这本书来。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/22&lt;/li&gt;
+  &lt;li&gt;走两圈跑两圈，40min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;上火车之前在楼下跑的，估计还是长期没运动的缘故，就算是三天跑一次膝盖也有点疼，然后赶火车的时候差点跑错站……幸好半路看了下车票。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/25&lt;/li&gt;
+  &lt;li&gt;走3min跑2min，30min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;膝盖还是有点疼……减少了运动量，回去的时候在小区里迷了路 - -，走了半个小时才走回去……&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/09/28&lt;/li&gt;
+  &lt;li&gt;跑15min，走5min，40min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;目标是10月9号能连续跑30分钟，加大了运动量，连续跑了15分钟，跑完膝盖也不疼，可喜可贺！&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/10/01&lt;/li&gt;
+  &lt;li&gt;跑15min，走5min，40min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;保持和上次一样的运动量，另外……老家好冷&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/10/04&lt;/li&gt;
+  &lt;li&gt;跑15min，走5min，40min&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;第二天还要赶火车，跑完就赶紧睡了……&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2015/10/07&lt;/li&gt;
+  &lt;li&gt;跑20min，走5min，50min&lt;/li&gt;
+  &lt;li&gt;新公司的环境超赞！人少车少风景美！还有跑步专用的跑道！&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 16 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/blog/2015/09/16/running-log/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/blog/2015/09/16/running-log/</guid>
+        
+        
+        <category>Blog</category>
+        
+      </item>
+    
+      <item>
+        <title>用 PHP 读取文件夹大小各路方法哪家强？</title>
+        <description>&lt;p&gt;参照 Hostker 写在线文件管理器的时候，发现 Hostker 的文件夹也是显示了文件大小的，而且响应速度一点儿也不慢，于是有了下面&lt;del&gt;没什么实际用处&lt;/del&gt;的测试。&lt;/p&gt;
+
+&lt;p&gt;##测试方法&lt;/p&gt;
+
+&lt;p&gt;以发送请求到请求完毕的时间为准&lt;/p&gt;
+
+&lt;p&gt;##测试用文件夹&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/assets/images/1032098623.jpg&quot; alt=&quot;01.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;##迭代法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function GetDirectorySize($path){
+    $bytestotal = 0;
+    $path = realpath($path);
+    if($path!==false){
+        foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS)) as $object){
+            $bytestotal += $object-&amp;gt;getSize();
+        }
+    }
+    return $bytestotal;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/assets/images/367173465.jpg&quot; alt=&quot;02.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;##递归大法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function foldersize($path) {
+  $total_size = 0;
+  $files = scandir($path);
+
+  foreach($files as $t) {
+    if (is_dir(rtrim($path, &#39;/&#39;) . &#39;/&#39; . $t)) {
+      if ($t&amp;lt;&amp;gt;&quot;.&quot; &amp;amp;&amp;amp; $t&amp;lt;&amp;gt;&quot;..&quot;) {
+          $size = foldersize(rtrim($path, &#39;/&#39;) . &#39;/&#39; . $t);
+          $total_size += $size;
+      }
+    } else {
+      $size = filesize(rtrim($path, &#39;/&#39;) . &#39;/&#39; . $t);
+      $total_size += $size;
+    }
+  }
+  return $total_size;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/assets/images/131725192.jpg&quot; alt=&quot;03.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;php--linux-&quot;&gt;php 调用 linux 命令&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function pathsize($path) {
+  $io = popen(&#39;du -sb &#39; . $path, &#39;r&#39;);
+  $size = fgets($io);
+  $pathsize = substr ( $size, 0, strpos ( $size, &quot;\t&quot; ) );
+  pclose($io);
+  return $pathsize;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/assets/images/1893184176.jpg&quot; alt=&quot;04.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;python-&quot;&gt;Python 乱入&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;from django.http import HttpResponse
+import os
+
+path = r&#39;D:\dev\homestead\Code\filem\vendor&#39;
+def get_size(start_path = &#39;.&#39;):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(start_path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            total_size += os.path.getsize(fp)
+    return total_size
+    
+def first_page(request):
+    total_size = get_size(path)
+    return HttpResponse(total_size)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/assets/images/3899513673.jpg&quot; alt=&quot;05.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;测试结果&lt;/h2&gt;
+&lt;p&gt;显而易见， 调用系统命令 &amp;gt; 递归 &amp;gt; 迭代&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2014/11/04/use-php-read-dirctory-size/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2014/11/04/use-php-read-dirctory-size/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+      <item>
+        <title>为什么在 CSS 中，id 也能像 class 一样被复用</title>
+        <description>&lt;p&gt;在学习 CSS 的时候，不论网上的资料还是书本都会告诉你：对于只需要用到一次的情况使用id，对于需要用到多次的情况使用class。
+但是，如果我们把 id 用于多个标签，发现它和 class 一样能改变多个标签的样式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;en&quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+  &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+  &amp;lt;style&amp;gt;
+    #test1{
+      width: 200px;
+      height: 200px;
+      background: red;
+      margin: 10px 0;
+    }
+  &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&quot;test1&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;test1&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;test1&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果会发现，三个div的背景都是红色。
+说好的 id 只能使用一次呢？怎么能用在多个 div 上？这不和 class 一样了？
+这个时候，我们就只有找到官方的权威资料，来看看是怎么一回事了，下面分别是JS、HTML、CSS分别对id标签的使用定义。&lt;/p&gt;
+
+&lt;h2 id=&quot;javascriptmdn--id-&quot;&gt;先看看 javascript，MDN 对 id 怎么定义的&lt;/h2&gt;
+
+&lt;p&gt;js是通过DOM来对HTML进行操作，在DOM的定义中，虽然提到了ID是唯一的&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The concept of an element’s unique identifier (ID)&lt;a href=&quot;https://html.spec.whatwg.org/multipage/infrastructure.html#concept-id&quot;&gt;(资料链接1)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;但是并没对存在多个相同 id 的情况做出规定，见 &lt;a href=&quot;https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute&quot;&gt;(资料链接2)&lt;/a&gt;，不过，大部分浏览器会返回找到的第一个id，从这个点来说，，JS中保证id的唯一性很重要。&lt;/p&gt;
+
+&lt;h2 id=&quot;w3c--html--id-&quot;&gt;再看看 w3c 标准中对 HTML 的 id 标签的定义&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If a document contains more than one object with the same identifier, the objects are exposed as a collection that can be referenced only in ordinal position. &lt;a href=&quot;http://docs.webplatform.org/wiki/html/attributes/id&quot;&gt;(资料链接3)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;大概意思是：如果有多个相同的id，这些对象将被存放在一个集合中，并且只能顺序地被引用。&lt;/p&gt;
+
+&lt;h2 id=&quot;w3c--css--id-&quot;&gt;最后，找到 w3c 标准中对 CSS 的 ID 选择器的规定&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If an element has multiple ID attributes, all of them must be treated as IDs for that element for the purposes of the ID selector. &lt;a href=&quot;http://docs.webplatform.org/wiki/css/selectors/id_selector&quot;&gt;(资料链接4)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;大概意思是：如过有多个相同的 id，所有的 id 都必须选中。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;最终结论&lt;/h2&gt;
+&lt;p&gt;也就是说，之所以在 css 中，id 也能像 class 一样被重复使用，这只是对于 css 来说的，而对于 JS 和 HTML 并不适用。
+另外 id 的权值比 class 高，因此，可以在 css 中用 class 做大部分的样式，最后再用 id 来修改特定的需求。&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 31 Oct 2014 00:00:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/notes/2014/10/31/why-id-same-class-in-css/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/notes/2014/10/31/why-id-same-class-in-css/</guid>
+        
+        
+        <category>Notes</category>
+        
+      </item>
+    
+  </channel>
+</rss>
