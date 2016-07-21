@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>韩天峰的《大话 PHP 设计模式》学习笔记</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="description" content="Ilvsx's Blog">
+        <link rel="canonical" 
+        href="/notes/2016/07/20/learn-design-pattern/">
+        
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+        <style> /* cyrillic-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkfZraR2Tg8w2lzm7kLNL0-w.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkV4sYYdJg5dU2qzJEVSuta0.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkVBW26QxpSj-_ZKm_xT4hWw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkQt_Rm691LTebKfY2ZkKSmI.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkaE8kM4xWR1_1bYURRojRGc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(/assets/fonts/ViZhet7Ak-LRXZMXzuAfkYgp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+ </style>
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Ilvsx's Blog</a></h1>
+                <h2 style="color: #ccc">return practice() ? '1 week' : 'never';</h2>
+                <ul>
+	<li> <a href="/blog">Blogs</a><span>/</span> </li>
+	<li> <a href="/books">Books</a><span>/</span> </li>
+	<li> <a href="/about">About & Links</a><span>/</span> </li>
+</ul>
+                
+            </div>
+        </header>
+        <div class="page-content wc-container">
+	
+	<div class="post">
+		<h1>韩天峰的《大话 PHP 设计模式》学习笔记</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      Notes
+      </span> |
+	    
+	    <span class="post-date">
+    	Jul 20, 2016 
+	    </span>
+		</p>		
+		<div class="post">
+			<p>视频地址：<a href="http://www.imooc.com/learn/236">Rango - 大话PHP设计模式 - imooc.com</a></p>
+
+<h2 id="section">一、什么是设计模式</h2>
+<ul>
+  <li>什么是设计模式：前人的经验总结，如果把编程比作武林，那设计模式就是武林秘籍</li>
+  <li>课程内容：
+    <ul>
+      <li>PHP 面向对象的高级特性</li>
+      <li>十一种设计模式</li>
+    </ul>
+  </li>
+  <li>课程目标：
+    <ul>
+      <li>掌握 PHP 各类设计模式</li>
+      <li>具备设计纯面向对象框架和系统的能力</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section-1">二、开发环境</h2>
+<ul>
+  <li>Phpstorm</li>
+  <li>Source Code Pro 字体</li>
+</ul>
+
+<h2 id="section-2">三、命名空间</h2>
+<ul>
+  <li>作用和目的：解决命名冲突，方便管理代码</li>
+  <li>实现
+    <ul>
+      <li>spl_autoload_register()</li>
+      <li>composer 自动生成</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section-3">四、链式操作的实现</h2>
+<p>一行代码实现多行代码的功能</p>
+
+<pre><code class="language-php">$db-&gt;where('name', 'sakuya')-&gt;where('sex', 1)-&gt;first();
+</code></pre>
+<p>关键是 <code>return $this</code></p>
+
+<h2 id="php-">五、PHP 魔术方法</h2>
+<ul>
+  <li><code>__get</code>/<code>__set</code>：属性接管</li>
+  <li><code>__call</code>/<code>__callstatic</code>：控制方法调用</li>
+  <li><code>__toString</code>：当对象被当作字符串时</li>
+  <li>
+    <p><code>__invoke</code>：将对象当成一个函数执行的时候会回调</p>
+
+    <pre><code class="language-php">&lt;?php
+class CallableClass 
+{
+    function __invoke($x) {
+        var_dump($x);
+    }
+}
+$obj = new CallableClass;
+$obj(5);
+var_dump(is_callable($obj));
+\\ int(5)
+\\ bool(true)
+</code></pre>
+  </li>
+</ul>
+
+<h2 id="section-4">六、常见设计模式</h2>
+
+<h4 id="section-5">工厂模式</h4>
+
+<p>用工厂方法或类来生成对象，而不是在代码中直接 <code>new Class()</code>，替换<code>new Class()</code> 这种写法<br />
+好处是如果生成对象的方式发生改变，比如构造参数改变，直接修改工厂方法就行了</p>
+
+<h4 id="section-6">单例模式</h4>
+
+<p>使某个类的对象只允许创建一个<br />
+比如数据库类，数据库的连接只需要连接一次</p>
+
+<h4 id="section-7">注册模式</h4>
+
+<p>解决全局变量共享问题和交换对象<br />
+可以理解成用一个类来存放全局变量</p>
+
+<h4 id="section-8">适配器模式</h4>
+
+<p>可以将截然不同的函数接口封装成统一的 API<br />
+比如多种数据库的连接方法不同，通过这个模式封装成统一的 API</p>
+
+<h4 id="section-9">策略模式</h4>
+
+<p>将一组特定的行为和算法封装成类，以适应某些特定的上下文环境</p>
+
+<h4 id="section-10">数据对象映射模式</h4>
+
+<p>将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作<br />
+例子：ORM</p>
+
+<h4 id="section-11">观察者模式</h4>
+
+<p>当一个对象状态发生改变时，依赖它的对象全不会收到通知，并自动更新<br />
+场景：一个事件发生后，要执行一连串的更新操作，传统的编程方式，就是在事件的代码之后直接加入处理逻辑当更新的逻辑增多之后，代码变得难以维护，这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码  <br />
+观察者模式实现了低耦合、非侵入式的通知与更新机制</p>
+
+<h4 id="section-12">原型模式</h4>
+
+<ul>
+  <li>与工厂模式类似，都是用来创建对象</li>
+  <li>与工厂模式不同的地方是，原型模式是先创建好一个原型对象，然后通过 <code>clone</code> 原型对象的方式，来创建新的对象，这样就免去了类创建时重复的初始化操作</li>
+  <li>原型模式适用于大对象的创建创建一个大对象需要很大的开销，如果每次 <code>new</code> 就会消耗很大，原型模式仅需内存拷贝即可</li>
+</ul>
+
+<h4 id="decorator">装饰器模式(Decorator)</h4>
+
+<ul>
+  <li>可以动态地添加修改类的功能</li>
+  <li>一个类提供了一项功能，如果要修改并添加额外的功能，传统的编程模式，需要写一个子类继承它，并重新实现该类的方法</li>
+  <li>使用装饰器模式，仅需在运行时添加一个装饰器对象即可实现，可实现最大的灵活性</li>
+</ul>
+
+<h4 id="section-13">迭代器模式</h4>
+
+<p>在不需要了解内部实现的前提下，遍历一个聚合对象的内部元素  <br />
+实现 <code>Iterator</code> 接口即可</p>
+
+<h4 id="section-14">代理模式</h4>
+
+<p>在客户端和实体之间建立一个代理对象，客户端对实体的操作全部委派给代理对象，隐藏实体的具体实现细节</p>
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>17 Jul 2016 &raquo;</span>
+			  <a href="/notes/2016/07/17/laravel-package/">开发中常用的 Laravel 第三方库</a>
+		    </li>
+		    
+		    <li>
+			  <span>07 Jul 2016 &raquo;</span>
+			  <a href="/notes/2016/07/07/use-atom-text-editor/">Atom ，比 Sublime 更好用的文本代码编辑器</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Dec 2015 &raquo;</span>
+			  <a href="/dirary/2015/12/26/summary-2015/">2015年总结 & 展望2016</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<a href="/notes/2016/07/17/laravel-package/"><< Older</a>
+			
+		</div>
+		<div class="column-2"><a href="/ ">Home</a></div>
+		<div class="column-3">
+			
+				<span>Newer >></span>
+			
+		</div>
+	</div>
+</div>
+ 
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <h6>Few more links</h6>
+<ul class="menu">
+	<li> <a href="/blog">Blogs</a><span>/</span> </li>
+	<li> <a href="/books">Books</a><span>/</span> </li>
+	<li> <a href="/about">About & Links</a><span>/</span> </li>
+</ul>		
+                    
+                </div>
+                <div class="column two">
+                    <h6>Follow me</h6>
+
+<ul class="social-media">
+
+
+    
+
+    
+    <li>
+        <a title="ilvsx on Github" 
+            href="https://github.com/ilvsx" 
+            class="github wc-img-replace" target="_blank">Github</a>
+    </li>
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</ul>
+
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                
+	Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.      
+
+Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+            </p>
+        </footer>
+    </body>        
+</html>
